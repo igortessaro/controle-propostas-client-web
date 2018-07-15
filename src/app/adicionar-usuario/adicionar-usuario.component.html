@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2> Usuário</h2>
+      <br/>
+      <div class="row">
+        <div class="col-md-12">
+          <form class="form-group" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="cpf">CPF:</label>
+              <input formControlName="cpf" placeholder="Digite seu CPF" name="cpf" class="form-control" id="cpf">
+              <div *ngIf="submitted && addForm.controls.cpf.errors" class="error">
+                <div *ngIf="addForm.controls.cpf.errors.required">O campo CPF é obrigatório</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="nome">Nome:</label>
+              <input formControlName="nome" placeholder="Digite seu nome" name="nome" class="form-control" id="nome">
+              <div *ngIf="submitted && addForm.controls.nome.errors" class="error">
+                <div *ngIf="addForm.controls.nome.errors.required">O campo Nome é obrigatório</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="dataNascimento">Data Nascimento:</label>
+              <input type="text" formControlName="dataNascimento" placeholder="Digite sua data de nascimento" name="dataNascimento" class="form-control"
+                id="dataNascimento">
+              <div *ngIf="submitted && addForm.controls.dataNascimento.errors" class="error">
+                <div *ngIf="addForm.controls.dataNascimento.errors.required">O campo Data Nascimento é obrigatório</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail:</label>
+              <input formControlName="email" placeholder="Digite seu E-mail" name="email" class="form-control" id="email">
+              <div *ngIf="submitted && addForm.controls.email.errors" class="error">
+                <div *ngIf="addForm.controls.email.errors.required">O campo E-mail é obrigatório</div>
+                <div *ngIf="addForm.controls.email.errors.email">E-mail informado não é um e-mail válido</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="perfil">Perfil de Usuário:</label>
+              <select class="form-control" formControlName="perfil" id="perfil" name="perfil">
+                <option value="">(Selecione)</option>
+                <option *ngFor="let perfil of perfis" [value]="perfil.key">{{perfil.value}}</option>
+              </select>
+              <div *ngIf="submitted && addForm.controls.perfil.errors" class="error">
+                  <div *ngIf="addForm.controls.perfil.errors.required">O campo Perfil de Usuário é obrigatório</div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 offset-md-11">
+                <button class="btn btn-success">Salvar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
