@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core'
-import { UsuarioService } from "../service/usuario.service";
+import { UsuarioService } from "../../service/usuario.service";
 import { Router } from "@angular/router";
-import { Usuario } from "../model/usuario.model";
+import { Usuario } from "../../model/usuario.model";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { first } from "rxjs/operators";
-import { ListItem } from "../model/listItem.model";
+import { ListItem } from "../../model/listItem.model";
 
 @Component({
   selector: 'app-editar-usuario',

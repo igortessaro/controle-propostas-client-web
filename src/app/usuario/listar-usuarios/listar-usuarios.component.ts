@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { UsuarioService } from "../service/usuario.service";
-import { Usuario } from "../model/usuario.model";
+import { UsuarioService } from "../../service/usuario.service";
+import { Usuario } from "../../model/usuario.model";
+import { AuthenticationService } from "../../service/auth.service";
 
 @Component({
   selector: 'app-listar-usuarios',
@@ -12,7 +13,10 @@ export class ListarUsuariosComponent implements OnInit {
 
   usuarios: Usuario[];
 
-  constructor(private router: Router, private usuarioService: UsuarioService) { }
+  constructor(
+    private router: Router, 
+    private usuarioService: UsuarioService,
+    private authService: AuthenticationService) { }
 
   ngOnInit() {
     this.usuarioService.obterUsuarios()
@@ -37,4 +41,9 @@ export class ListarUsuariosComponent implements OnInit {
   addUser(): void {
     this.router.navigate(['adicionar-usuario']);
   };
+
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['login']);
+  }
 }

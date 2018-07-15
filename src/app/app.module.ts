@@ -7,9 +7,9 @@ import { routing } from "./app.routing";
 import { AuthenticationService } from "./service/auth.service";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { AdicionarUsuarioComponent } from './adicionar-usuario/adicionar-usuario.component';
-import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
-import { ListarUsuariosComponent } from './listar-usuarios/listar-usuarios.component';
+import { AdicionarUsuarioComponent } from './usuario/adicionar-usuario/adicionar-usuario.component';
+import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
+import { ListarUsuariosComponent } from './usuario/listar-usuarios/listar-usuarios.component';
 import { UsuarioService } from "./service/usuario.service";
  
 // used to create fake backend

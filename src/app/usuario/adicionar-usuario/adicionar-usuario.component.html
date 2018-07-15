@@ -50,6 +50,23 @@
                   <div *ngIf="addForm.controls.perfil.errors.required">O campo Perfil de Usuário é obrigatório</div>
                 </div>
             </div>
+
+            <div class="form-group">
+              <label for="chaveAcesso">Senha:</label>
+              <input type="password" formControlName="chaveAcesso" placeholder="Digite sua senha" maxlength="6" name="chaveAcesso" class="form-control" id="chaveAcesso">
+              <div *ngIf="submitted && addForm.controls.chaveAcesso.errors" class="error">
+                <div *ngIf="addForm.controls.chaveAcesso.errors.required">O campo Senha é obrigatório</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmSenha">Confirmar Senha:</label>
+              <input type="password" formControlName="confirmSenha" placeholder="Confirmar senha" maxlength="6" name="confirmSenha" class="form-control" id="confirmSenha">
+              <div *ngIf="submitted && addForm.controls.confirmSenha.errors" class="error">
+                <div *ngIf="addForm.controls.confirmSenha.errors.required">O campo de confirmação de senha é obrigatório</div>
+              </div>
+            </div>
+
             <div class="row">
               <div class="col-md-12 offset-md-11">
                 <button class="btn btn-success">Salvar</button>

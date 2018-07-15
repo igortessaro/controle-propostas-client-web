@@ -5,7 +5,7 @@
       <input type="email" placeholder="Digite seu e-mail" class="form-control" formControlName="email" id="email">
       <div *ngIf="submitted && loginForm.controls.email.errors" class="error">
         <div *ngIf="loginForm.controls.email.errors.required">O campo E-mail é obrigatório</div>
-        <div *ngIf="loginForm.controls.email.errors.email">E-mail informado não é um e-mail válido</div>
+        <!-- <div *ngIf="loginForm.controls.email.errors.email">E-mail informado não é um e-mail válido</div> -->
       </div>
     </div>
     <div class="form-group">

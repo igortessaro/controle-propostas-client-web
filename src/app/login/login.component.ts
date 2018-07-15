@@ -17,9 +17,9 @@ export class LoginComponent implements OnInit {
   error = '';
   invalidLogin: boolean = false;
   constructor(
-    private formBuilder: FormBuilder, 
-    private route: ActivatedRoute, 
-    private router: Router, 
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
     private authService: AuthenticationService) { }
 
   onSubmit() {
@@ -27,12 +27,6 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-
-    // if (this.loginForm.controls.email.value === 'dhiraj@gmail.com' && this.loginForm.controls.senha.value === 'password') {
-    //   this.router.navigate(['home']);
-    // } else {
-    //   this.invalidLogin = true;
-    // }
 
     this.authService.login(this.loginForm.controls.email.value, this.loginForm.controls.senha.value)
       .pipe(first())
@@ -45,11 +39,12 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         });
 
+    this.invalidLogin = true;
   }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required, Validators.email],
+      email: ['', Validators.required],
       senha: ['', Validators.required]
     });
 
@@ -60,7 +55,7 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '';
   }
 
-  logged(){
+  logged() {
     return this.authService.logged();
   }
 }
